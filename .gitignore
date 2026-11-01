@@ -1,0 +1,6 @@
+﻿# Bilgisayarda olup GitHub'a gitmesini istemediklerimiz
+desktop.ini
+Thumbs.db
+*.tmp
+node_modules/
+.env
