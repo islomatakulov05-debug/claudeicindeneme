@@ -1,6 +1,7 @@
 // Bir video kaydından kısa bir parça keser.
 // Kullanım: node kes.js <video dosyası> <başlangıç saniyesi> <süre saniyesi>
 // Orijinal dosyaya dokunmaz, yeni bir kopya oluşturur.
+// Çıktı H.264 formatında olur; her oynatıcıda ve platformda çalışır.
 
 const { execFileSync } = require("child_process");
 const path = require("path");
@@ -27,7 +28,11 @@ execFileSync(FFMPEG, [
   "-ss", baslangic,
   "-i", girdi,
   "-t", sure,
-  "-c", "copy",
+  "-c:v", "libx264",
+  "-preset", "veryfast",
+  "-crf", "20",
+  "-pix_fmt", "yuv420p",
+  "-c:a", "aac",
   cikti,
 ], { stdio: "inherit" });
 
