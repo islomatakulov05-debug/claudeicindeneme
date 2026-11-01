@@ -4,3 +4,4 @@ Thumbs.db
 *.tmp
 node_modules/
 .env
+ciktilar/
